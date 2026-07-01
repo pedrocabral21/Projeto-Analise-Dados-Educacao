@@ -318,13 +318,13 @@ def fig_idh_barras(df):
         **{**LAYOUT_BASE, "plot_bgcolor": "#22304A"},
         title=dict(text="Desempenho no ENEM 2023 e IDH por Região", x=0.5,
                    font=dict(size=20, color="white")),
-        yaxis=dict(title="Nota Média Geral", titlefont=dict(color="#4DA3FF"),
-                   tickfont=dict(color="#4DA3FF"),
-                   range=[media_reg.min()*0.95, media_reg.max()*1.05],
-                   gridcolor="rgba(255,255,255,0.08)", griddash="dot"),
-        yaxis2=dict(title="IDH", titlefont=dict(color="#FF9F1C"),
-                    tickfont=dict(color="#FF9F1C"),
-                    overlaying="y", side="right", range=[0.65, 0.80]),
+        yaxis=dict(title=dict(text="Nota Média Geral", font=dict(color="#4DA3FF")), 
+           tickfont=dict(color="#4DA3FF"),
+           range=[media_reg.min()*0.95, media_reg.max()*1.05],
+           gridcolor="rgba(255,255,255,0.08)", griddash="dot"),
+        yaxis2=dict(title=dict(text="IDH", font=dict(color="#FF9F1C")),             
+            tickfont=dict(color="#FF9F1C"),
+            overlaying="y", side="right", range=[0.65, 0.80]),
         legend=dict(font=dict(size=14), bgcolor="rgba(0,0,0,0)")
     )
     fig.update_xaxes(tickfont=dict(size=15, color="white"), showgrid=False, zeroline=False)

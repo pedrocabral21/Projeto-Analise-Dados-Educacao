@@ -9,9 +9,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# =============================================================================
-# CSS — padrão do dashboard
-# =============================================================================
+
 
 st.markdown("""
 <style>
@@ -84,12 +82,26 @@ st.markdown("""
 # =============================================================================
 
 RENDA_LABEL = {
-    "A": 0.0,   "B": 1320.0,  "C": 1650.0,  "D": 2310.0,
-    "E": 2970.0, "F": 3630.0,  "G": 4620.0,  "H": 5940.0,
-    "I": 7260.0, "J": 8580.0,  "K": 9900.0,  "L": 11220.0,
-    "M": 12540.0,"N": 14520.0, "O": 17820.0, "P": 23100.0, "Q": 26400.0
+    "A": "Sem renda",
+    "B": "até R$1.320",
+    "C": "R$1.320–1.650",
+    "D": "R$1.650–2.310",
+    "E": "R$2.310–2.970",
+    "F": "R$2.970–3.630",
+    "G": "R$3.630–4.620",
+    "H": "R$4.620–5.940",
+    "I": "R$5.940–7.260",
+    "J": "R$7.260–8.580",
+    "K": "R$8.580–9.900",
+    "L": "R$9.900–11.220",
+    "M": "R$11.220–12.540",
+    "N": "R$12.540–14.520",
+    "O": "R$14.520–17.820",
+    "P": "R$17.820–23.100",
+    "Q": "acima de R$23.100"
 }
 RENDA_ORDEM = list(RENDA_LABEL.keys())
+RENDA_TEXTO = list(RENDA_LABEL.values())
 
 COR_RACA_MAP = {
     0: "Não declarado",
@@ -282,7 +294,7 @@ def fig_raca_renda(df, ano):
                     font=dict(size=13), bgcolor="rgba(0,0,0,0)")
     )
     fig.update_xaxes(tickmode="array", tickvals=list(range(len(RENDA_ORDEM))),
-                     ticktext=RENDA_ORDEM, tickangle=-45,
+                     ticktext=RENDA_TEXTO, tickangle=-45,
                      tickfont=dict(color="white", size=11), showgrid=False, zeroline=False)
     fig.update_yaxes(gridcolor="rgba(255,255,255,0.08)", griddash="dot",
                      zeroline=False, tickfont=dict(color="white"))
@@ -330,7 +342,7 @@ def fig_scatter_renda_genero(df, ano):
                     font=dict(size=13), bgcolor="rgba(0,0,0,0)")
     )
     fig.update_xaxes(tickmode="array", tickvals=list(range(len(RENDA_ORDEM))),
-                     ticktext=RENDA_ORDEM, tickangle=-45,
+                     ticktext=RENDA_TEXTO, tickangle=-45,
                      tickfont=dict(color="white", size=11), showgrid=False, zeroline=False)
     fig.update_yaxes(gridcolor="rgba(255,255,255,0.08)", griddash="dot",
                      zeroline=False, tickfont=dict(color="white"))

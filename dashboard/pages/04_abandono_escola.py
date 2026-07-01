@@ -100,10 +100,10 @@ LAYOUT_BASE = dict(
 # ── Dados ─────────────────────────────────────────────────────────────────────
 @st.cache_data
 def carregar_dados():
-    reg21 = pd.read_csv("Taxa_Abandono_REGIAO_2021.csv")
-    reg23 = pd.read_csv("Taxa_Abandono_REGIAO_2023.csv")
-    est21 = pd.read_csv("Taxa_Abandono_ESTADO_2021.csv")
-    est23 = pd.read_csv("Taxa_Abandono_ESTADO_2023.csv")
+    reg21 = pd.read_csv("Taxa_Abandono_REGIAO_2021.csv", sep=";")
+    reg23 = pd.read_csv("Taxa_Abandono_REGIAO_2023.csv", sep=";")
+    est21 = pd.read_csv("Taxa_Abandono_ESTADO_2021.csv", sep=";")
+    est23 = pd.read_csv("Taxa_Abandono_ESTADO_2023.csv", sep=";")
 
     regioes = pd.concat([reg21, reg23], ignore_index=True)
     estados = pd.concat([est21, est23], ignore_index=True)

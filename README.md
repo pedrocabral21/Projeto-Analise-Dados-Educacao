@@ -80,7 +80,7 @@ seaborn>=0.12.0
 
 ## Bases de dados
 
-Coloque os arquivos CSV processados na pasta `data/` antes de executar.
+Coloque os arquivos CSV processados na pasta `dashboard` antes de executar.
 
 | Arquivo | Origem | Descrição |
 |---|---|---|
