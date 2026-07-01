@@ -171,13 +171,12 @@ def carregar_saeb():
 
 @st.cache_data
 def carregar_abandono():
-    df23 = pd.read_csv("Taxa_Abandono_ESTADO_2023.csv")
-    df21 = pd.read_csv("Taxa_Abandono_ESTADO_2021.csv")
+    df23 = pd.read_csv("Taxa_Abandono_ESTADO_2023.csv", sep=";")
+    df21 = pd.read_csv("Taxa_Abandono_ESTADO_2021.csv", sep=";")
     for df in (df23, df21):
         df["SG_UF"] = df["UNIDGEO"].map(UF_POR_NOME)
         df["3_CAT_MED"] = pd.to_numeric(df["3_CAT_MED"], errors="coerce")
     return df21, df23
-
 
 @st.cache_data
 def montar_base_cruzada(df_enem, df_saeb, df_abandono):

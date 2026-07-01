@@ -364,10 +364,10 @@ def fig_gap_racial(gaps_df):
         ))
 
     fig.update_layout(
-        **{**LAYOUT_BASE, "height": 460}, barmode="group",
-        title=dict(text="Evolução dos Gaps Raciais (vs Branca)", x=0.5,
-                   font=dict(size=20, color="white")),
-        xaxis_title="Raça/Cor", yaxis_title="Gap (pontos)",
+        **{**LAYOUT_BASE, "height": 460, "margin": dict(l=60, r=30, t=100, b=70)},
+        title=dict(text="Gaps Raciais vs Branca — 2021 e 2023", 
+                   x=0.03,  # alinha à esquerda
+                   font=dict(size=18, color="white")),
         legend=dict(title=dict(text="Ano", font=dict(size=14)),
                     font=dict(size=13), bgcolor="rgba(0,0,0,0)")
     )
@@ -391,9 +391,10 @@ def fig_gap_genero(gaps_df):
     ))
 
     fig.update_layout(
-        **{**LAYOUT_BASE, "height": 460},
-        title=dict(text="Evolução do Gap de Gênero (Masculino − Feminino)", x=0.5,
-                   font=dict(size=20, color="white")),
+        **{**LAYOUT_BASE, "height": 460, "margin": dict(l=60, r=30, t=100, b=70)},
+        title=dict(text="Gap de Gênero (Masculino − Feminino)",
+                   x=0.03, 
+                   font=dict(size=18, color="white")),
         xaxis_title="Ano", yaxis_title="Gap (pontos)", showlegend=False
     )
     fig.update_xaxes(tickfont=dict(size=14, color="white"), showgrid=False, zeroline=False)
