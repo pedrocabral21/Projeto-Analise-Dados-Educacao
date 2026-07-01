@@ -306,7 +306,7 @@ def fig_barras_inse(df, ano):
                    tickfont=dict(color=DB_SUBTEXT), gridcolor=DB_GRID,
                    linecolor=DB_GRID, zeroline=False, range=[0, y_max * 1.18]),
         legend=dict(title=dict(text="Escola", font=dict(color=DB_TEXT)),
-                    orientation="h", x=0, y=-0.15,
+                    orientation="h", x=0, y=-0.,
                     font=dict(color=DB_TEXT, size=12), bgcolor="rgba(0,0,0,0)",
                     bordercolor=DB_ORANGE, borderwidth=1),
     )
@@ -340,7 +340,7 @@ def fig_comparativo(df):
                                "Acertos médios: %{y:.1f}<extra></extra>"),
             ))
     fig.update_layout(
-        **LAYOUT_BASE,
+        **{**LAYOUT_BASE, "height": 520, "margin": dict(l=60, r=40, t=100, b=100)},
         title=dict(
             text=("<b>Comparativo 2021 × 2023 — Acertos Médios</b><br>"
                   f"<span style='color:{DB_SUBTEXT};font-size:12px'>"
@@ -348,10 +348,12 @@ def fig_comparativo(df):
             x=0.03, font=dict(color=DB_TEXT, family="Montserrat"),
         ),
         barmode="group",
-        xaxis=dict(title=dict(text="Região", font=dict(color=DB_SUBTEXT, size=12)),
-                   tickfont=dict(color=DB_SUBTEXT, size=12),
-                   gridcolor=DB_GRID, linecolor=DB_GRID,
-                   categoryorder="array", categoryarray=REGIOES_ORDEM),
+        xaxis=dict(
+            title=None,
+            tickfont=dict(color=DB_SUBTEXT, size=12),
+            gridcolor=DB_GRID, linecolor=DB_GRID,
+            categoryorder="array", categoryarray=REGIOES_ORDEM
+        ),
         yaxis=dict(title=dict(text="Acertos Médios (LP + MT)", font=dict(color=DB_SUBTEXT, size=12)),
                    tickfont=dict(color=DB_SUBTEXT), gridcolor=DB_GRID,
                    linecolor=DB_GRID, zeroline=False, range=[0, y_max * 1.18]),
@@ -359,15 +361,13 @@ def fig_comparativo(df):
                     orientation="h", x=0, y=-0.15,
                     font=dict(color=DB_TEXT, size=12), bgcolor="rgba(0,0,0,0)",
                     bordercolor=DB_ORANGE, borderwidth=1),
-        height=520,
-        margin=dict(l=60, r=40, t=100, b=100),
     )
     return fig
 
 
 # =============================================================================
-# LAYOUT DA PÁGINA
-# =============================================================================
+# LAYOUT PAGINA
+
 st.markdown('<div class="page-title">SAEB — Ensino Básico</div>', unsafe_allow_html=True)
 st.markdown(
     '<div class="page-subtitle">SAEB 2021 e 2023 — relação entre nível socioeconômico e desempenho '
